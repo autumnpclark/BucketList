@@ -1,21 +1,34 @@
 <template>
-<div>
-    <h1>Activities!!!!!</h1>
-    <select @change="selectType($event)">
-        <option v-for="item in this.$root.$data.activityTypes" v-bind:key="item">
-            {{item}}
-        </option>
-    </select>
-    <select @change="selectSeason($event)">
-        <option v-for="item in this.$root.$data.activitySeasons" v-bind:key="item">
-            {{item}}
-        </option>
-    </select>
-    <select @change="selectCompleted($event)">
-        <option>All</option>
-        <option>Not Completed</option>
-        <option>Completed</option>
-    </select>
+<div class="homeView">
+    <h2>Activities</h2>
+    <div class="filters">
+        <div>
+            <label>Type of Activity: </label>
+            <select @change="selectType($event)">
+                <option v-for="item in this.$root.$data.activityTypes" v-bind:key="item">
+                    {{item}}
+                </option>
+            </select>
+        </div>
+        <div>
+            <label>Season: </label>
+            <select @change="selectSeason($event)">
+                <option v-for="item in this.$root.$data.activitySeasons" v-bind:key="item">
+                    {{item}}
+                </option>
+            </select>
+        </div>
+        <div>
+            <label>Completion Status: </label>
+            <select @change="selectCompleted($event)">
+                <option>All</option>
+                <option>Not Completed</option>
+                <option>Completed</option>
+            </select>
+        </div>
+    </div>
+    <h3>Don't see what you're looking for? 
+        <router-link to="/new">Create a new bucket list adventure. </router-link></h3>
     <ActivitiesList :activities="activities" />
 </div>
 </template>
@@ -67,3 +80,30 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.homeView {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+  color:gray;
+}
+
+a:hover {
+  font-style: italic;
+}
+</style>

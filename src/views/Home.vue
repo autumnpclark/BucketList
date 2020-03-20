@@ -1,26 +1,8 @@
 <template>
   <div id="app">
-    <div id="homeView">
+    <div class="homeView">
       <h1>Adventure is out there!</h1>
       <h2>Where will you go next?</h2>
-      <div class="controls">
-        <label>Need some help narrowing it down? Select a region here:</label>
-        <select @change="selectRegion($event)">
-          <option>All</option>
-          <option>North America East</option>
-          <option>North America West</option>
-          <option>Central America</option>
-          <option>South America</option>
-          <option>Europe</option>
-          <option>North Africa</option>
-          <option>Sub-Saharan Africa</option>
-          <option>Middle East</option>
-          <option>South Asia</option>
-          <option>Southeast Asia</option>
-          <option>East Asia</option>
-          <option>Australia/Oceania</option>
-        </select>
-      </div>
       <ul>
         <li v-for="item in locations" v-bind:key="item.name">
           <!--<img :src="item.img"/>-->
@@ -46,12 +28,12 @@ export default {
     return {actRegion: this.$root.$data.regions[0]}
   },
   computed: {
-    locations: function() {
-      return this.$root.$data.locations;
-    },
-    actvities() {
+    // locations: function() {
+    //   return this.$root.$data.locations;
+    // },
+    locations() {
       let returnList = this.$root.$data.locations;
-      if(this.selectRegion !== "All") {
+      if(this.actRegion !== "All") {
           returnList = returnList.filter(item => item.region === this.actRegion);        
       }
       return returnList
@@ -84,7 +66,7 @@ export default {
 
 <style scoped>
 
-#homeView {
+.homeView {
   display: flex;
   justify-content: center;
   flex-direction: column;

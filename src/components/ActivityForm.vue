@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style scoped>
-label {
+label, input, select {
     display: block;
 }
 

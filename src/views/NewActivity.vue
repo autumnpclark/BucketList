@@ -1,9 +1,11 @@
 <template>
 <div>
-    <h1>Create New Element</h1>
+    <h1>Create New Activity</h1>
     <!-- <label>Name</label><input v-model="newActivity.name"> -->
-    <ActivityForm :activity="newActivity" />
-    <button v-on:click="addAct()">Add Activity</button>
+    <div class="form">
+        <ActivityForm :activity="newActivity" />
+        <button v-on:click="addAct()">Add Activity</button>
+    </div>
 </div>
 </template>
 
@@ -32,9 +34,22 @@ export default {
     methods: {
         addAct() {
             this.newActivity.cost = parseFloat(this.newActivity.cost);
-            this.$root.$data.activities.push(this.newActivity);
+            this.$root.$data.activities.unshift(this.newActivity);
+            this.$router.push("/activities")
         }
     }
     
 }
 </script>
+
+<style scoped>
+.form {
+    margin:50px;
+    padding: 30px;
+    background-color: #fff;
+}
+
+h1 {
+    text-align: center;
+}
+</style>
