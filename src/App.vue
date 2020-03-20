@@ -55,7 +55,7 @@
 }
 
 body {
-  background: #f3f3f3;
+  background: #e8f4f8;
   margin: 0px;
 }
 
@@ -65,15 +65,21 @@ body {
   height: 30px;
   display: flex;
   text-align: center;
+  position: fixed;
+  left:0px;
+  bottom:0px;
+  
 }
 
 #footer a {
   display:flex;
+  padding-left: 15px;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: #e8f4f8;
   text-decoration: none;
+  margin-bottom: 0px;
 }
 
 #footer a:hover {

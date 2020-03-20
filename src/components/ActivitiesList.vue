@@ -10,9 +10,12 @@
                         <input type="checkbox" v-model="item.completed">
                     </div>
                 </div>
+                <div class="middleRow">
+                    <strong> Cost:</strong> ${{item.cost}}
+                </div>
                 <div class="bottomRow">
                     <p>{{item.location}}</p>
-                    <p>Notes: {{item.notes}}</p>
+                    <p><strong>Notes:</strong> {{item.notes}}</p>
                 </div>
             </div>
         </li>
@@ -62,6 +65,12 @@ li {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.middleRow {
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .complete {

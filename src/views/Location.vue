@@ -1,7 +1,7 @@
 <template>
-<div>
+<div class="homeView">
     <h1>{{this.locationID}}</h1>
-    <h2> Cost {{getCost()}} </h2>
+    <h2> Total Cost {{getCost()}} </h2>
     <ActivitiesList :activities="activities" />
 </div>
 </template>
@@ -30,3 +30,15 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+.homeView {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+</style>
